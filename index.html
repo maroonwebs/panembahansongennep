@@ -17,7 +17,9 @@
     <meta property="og:image" content="https://panembahansongennep.web.id/img/stmj-jokotole.webp">
     <meta property="og:url" content="https://panembahansongennep.web.id/">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="img/stmj-jokotole.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/stmj-jokotole.webp">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/stmj-jokotole.webp">
 
     <script type="application/ld+json">
     {
@@ -76,18 +78,15 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* --- PERBAIKAN: Section Separator Lebih Bersih --- */
-        /* Kotak dan simbol diamond dihapus agar teks tidak terpotong */
+        /* --- Section Separator --- */
         .section-separator {
-            border-bottom: 2px solid var(--accent-gold); /* Hanya garis bawah */
-            margin: 50px 0 30px 0; /* Memberi jarak nafas */
+            border-bottom: 2px solid var(--accent-gold); 
+            margin: 50px 0 30px 0; 
             padding-bottom: 10px;
             text-align: center;
             color: var(--paper-cream);
         }
         
-        /* Simbol Diamond (::after) DIHAPUS agar kalimat utuh */
-
         .paper-bg {
             background-color: var(--paper-cream);
             background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png"); 
@@ -203,6 +202,90 @@
         .photo-border { border: 4px solid white; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); transform: rotate(2deg); }
         .photo-border:nth-child(even) { transform: rotate(-2deg); }
 
+        /* =========================================
+           MOBILE RESPONSIVE & PROPORTIONAL TWEAKS
+           ========================================= */
+        @media (max-width: 768px) {
+            /* 1. Header & Hero: Teks lebih kecil, padding lebih rapat */
+            .hero-section {
+                padding: 60px 0;
+            }
+            .hero-logo {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 10px;
+            }
+            .hero-section p.lead {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            /* 2. Tombol Hero: Menumpuk (Stack) Vertikal agar mudah ditekan jari */
+            .hero-section .d-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px !important;
+                width: 100%;
+            }
+            .hero-section .btn {
+                width: 80%; /* Tombol lebih lebar di HP */
+                display: block;
+            }
+
+            /* 3. Section & Layout: Mengurangi margin agar tidak terlalu renggang */
+            .section-separator {
+                margin: 30px 0 20px 0;
+            }
+            .section-separator h3 {
+                font-size: 1.5rem;
+            }
+            .paper-bg {
+                padding: 1.2rem !important;
+            }
+
+            /* 4. Menu & Gambar: Proporsional */
+            .menu-img {
+                height: 200px;
+            }
+            .feature-box {
+                padding: 10px;
+            }
+            .feature-icon {
+                font-size: 1.5rem;
+            }
+            .feature-box h6 {
+                font-size: 0.9rem;
+            }
+
+            /* 5. Sticky Footer: Ikon di atas teks, font mengecil */
+            .sticky-footer {
+                padding: 8px 0;
+            }
+            .sticky-btn {
+                font-size: 0.7rem; 
+                flex-direction: column; /* Ikon di atas */
+                gap: 4px;
+                text-align: center;
+                line-height: 1.2;
+            }
+            .sticky-btn i {
+                font-size: 1.2rem;
+                margin-bottom: 2px;
+            }
+            
+            /* 6. Foto & Dekorasi: Rotasi dikurangi untuk hemat ruang */
+            .photo-border, .photo-border:nth-child(even) {
+                transform: rotate(0deg);
+                margin-bottom: 15px;
+            }
+            
+            /* Mencegah gambar overflow */
+            .img-fluid {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -237,11 +320,10 @@
         </div>
         
         <div class="row align-items-center paper-bg p-4 mx-1">
-            <div class="col-md-6 mb-4 mb-md-0">
+            <div class="col-md-6 mb-4 mb-md-0 text-center">
                 <img src="https://jatimnow.com/po-content/uploads/202309/image2-2.jpg?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     width="600" height="400"
                      alt="Interior Kedai Panembahan Songennep" 
-                     class="img-fluid rounded shadow photo-border" style="transform: rotate(-2deg);" 
+                     class="img-fluid rounded shadow photo-border"
                      loading="lazy">
             </div>
             <div class="col-md-6 ps-md-5">
@@ -372,7 +454,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="paper-bg p-3 d-flex align-items-center">
-                    <div class="bg-secondary rounded-circle me-3" style="width:50px; height:50px; background-image: url('https://randomuser.me/api/portraits/men/32.jpg'); background-size: cover;"></div>
+                    <div class="bg-secondary rounded-circle me-3" style="width:50px; height:50px; background-image: url('https://randomuser.me/api/portraits/men/32.jpg'); background-size: cover; flex-shrink: 0;"></div>
                     <div>
                         <p class="fst-italic small m-0">"STMJ terenak dan tanpa rasa amis, hangat, pas rempahnya."</p>
                         <div class="text-warning small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -381,7 +463,7 @@
             </div>
             <div class="col-md-6 mb-3">
                 <div class="paper-bg p-3 d-flex align-items-center">
-                    <div class="bg-secondary rounded-circle me-3" style="width:50px; height:50px; background-image: url('https://randomuser.me/api/portraits/women/44.jpg'); background-size: cover;"></div>
+                    <div class="bg-secondary rounded-circle me-3" style="width:50px; height:50px; background-image: url('https://randomuser.me/api/portraits/women/44.jpg'); background-size: cover; flex-shrink: 0;"></div>
                     <div>
                         <p class="fst-italic small m-0">"Tempat sehat & nyaman, cocok buat ngumpul."</p>
                         <div class="text-warning small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -392,11 +474,11 @@
 
     </section>
 
-    <div style="height: 60px;"></div>
+    <div style="height: 80px;"></div>
 
     <div class="sticky-footer">
         <div class="container">
-            <div class="row text-center">
+            <div class="row text-center align-items-center">
                 <div class="col-4">
                     <a href="https://gofood.co.id/kediri/restaurant/stmj-rempah-penembahan-songennep-jl-bandar-ngalim-8b49c8f3-2b30-496a-b9e4-8e4518bcd448" target="_blank" class="sticky-btn">
                         <i class="fas fa-motorcycle text-danger"></i> 
@@ -406,13 +488,13 @@
                 <div class="col-4 position-relative">
                     <div class="vr-custom position-absolute start-0 top-0"></div>
                     <a href="https://wa.me/628123456789" class="sticky-btn">
-                        <i class="fab fa-whatsapp text-success"></i> Hubungi Kami
+                        <i class="fab fa-whatsapp text-success"></i> Hubungi <span class="d-none d-sm-inline">Kami</span>
                     </a>
                     <div class="vr-custom position-absolute end-0 top-0"></div>
                 </div>
                 <div class="col-4">
                     <a href="https://maps.app.goo.gl/74afRPvUjndZ1m2q8" target="_blank" class="sticky-btn">
-                        <i class="fas fa-map-marked-alt text-warning"></i> Lihat Lokasi
+                        <i class="fas fa-map-marked-alt text-warning"></i> Lihat <span class="d-none d-sm-inline">Lokasi</span>
                     </a>
                 </div>
             </div>
